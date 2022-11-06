@@ -3,12 +3,12 @@ const hre = require("hardhat");
 async function main() {
 
 
-  const HelloSkale = await hre.ethers.getContractFactory("HelloSKALE");
-  const helloskale = await HelloSkale.deploy();
+  const Subjective = await hre.ethers.getContractFactory("Subjective");
+  const subjective = await Subjective.deploy();
 
-  await helloskale.deployed();
+  await subjective.deployed();
 
-  console.log("HelloSKALE.sol deployed to:", helloskale.address);
+  console.log("Subjective.sol deployed to:", subjective.address);
 }
 
 

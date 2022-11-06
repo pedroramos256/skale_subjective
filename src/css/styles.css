@@ -1,0 +1,43 @@
+body {
+    background:linear-gradient(109.42deg, #ebf8e9 0%, #ffe6e6 100%)!important;
+    font-family: 'Montserrat', sans-serif !important;
+  }
+
+input[type="radio"]:checked {
+    background-color: black;
+}
+
+
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background:rgb(0, 0, 0);
+    color:rgb(255, 255, 255)
+}
+
+h1 {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 150%;
+  }
+
+.yellow-hover:hover{
+    color: white !important;
+}
+
+.special-card {
+      opacity: .4;
+      border:rgb(0, 0, 0);
+
+    }
+
+.rounded {
+        border-top: 8px solid #bbb;
+        border-radius: 5px;
+        margin-left: 5%; 
+        margin-top: 3%
+    }
+
+.spacer {
+        margin-left: 5%; 
+        margin-top: 3%
+    }
