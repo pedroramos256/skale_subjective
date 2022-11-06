@@ -11,84 +11,88 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    </head>
     <body>
         <div class="container col-lg-9">
-        <div id="particles-js"></div>
-        <script src="js/app.js"></script>
+        <!--<div id="particles-js"></div>-->
             <div class="row">
               
               <div id="loader">
-                <!--<br>
+                <br>
                 <p class="text-center">Loading...</p>
               </div>
-              <div id="content" style="display: none;">-->
+              <div id="content" style="display: none;">
                 <div align="center">
                     <br>
                       <img src="resources/logo3.png" class="img-fluid" style="max-width: 60%; margin-left: 5%;">  
                     <br>
-                    <form onSubmit="App.getContract(); return false;" role="form">
+                    <form id="search_form" role="form">
                         <div class="form-group col-lg-7">
                             <div class="input-group">
                                 <input id="owner" class="form-control border-3 input-lg w-50" placeholder="Owner address"></input>
                                 <input id="index" type="number" class="form-control input-lg w-25 border-3" placeholder="Index" min="0"></input>
                                 <span class="input-group-btn">
-                                <button type="button" class="btn btn-outline-dark btn-lg border-4 fw-bold" style="border-radius: 5px;" data-bs-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Search</button>
+                                <button type="button" class="btn btn-outline-dark btn-lg border-4 fw-bold" style="border-radius: 5px;" data-bs-toggle="collapse" data-bs-target="#collapseExample2" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Search</button>
                             </div>
                         </div>       
                     </form>
                 </div>
                 <br>
-                <div class="collapse" id="collapseExample">
+                <div class="collapse" id="collapseExample2">
                   <div align="center">
-                    <div class="card border-3 border-dark" style="background-color: rgba(245, 245, 245, 0.4); width: 30%;">
+                  <div class="card border-3 border-dark" style="background-color: rgba(245, 245, 245, 0.4); width: 30%;">
                       <br>
-                      <p align="left" class=" spacer" style="margin-left: 5%"><b>Value:</b> 250</p>
+                      <p id="value_searched" align="left" class=" spacer" style="margin-left: 5%"><b>Value:</b> 250 </p>
                       <hr class="rounded" style="width: 95%">
-                      <p align="left" class=" spacer" style="margin-left: 5%"><b>Description:</b> Bike auction</p>
+                      <p id="description_searched" align="left" class=" spacer" style="margin-left: 5%"><b>Description:</b> Bicycle auction</p>
                       <!--<hr class="rounded" style="width: 95%">
                       <p align="left" class=" spacer" style="margin-left: 5%"><b>Third Party:</b> Subjective</p>
                       <hr class="rounded" style="width: 95%">
-                      <p align="left" class="fw-bold spacer" style="margin-left: 5%">Minimum Price:</p>
+                      <small align="left" class="fw-bold spacer" style="margin-left: 5%">Maximum Price:</small>
                       <hr class="rounded" style="width: 95%">
-                      <p align="left" class="fw-bold spacer" style="margin-left: 5%">Quotient:</p>
+                      <small align="left" class="fw-bold spacer" style="margin-left: 5%">Minimum Price:</small>
                       <hr class="rounded" style="width: 95%">
-                      <p align="left" class="fw-bold spacer" style="margin-left: 5%">Days for Upfront:</p>
+                      <small align="left" class="fw-bold spacer" style="margin-left: 5%">Quotient:</small>
                       <hr class="rounded" style="width: 95%">
-                      <p align="left" class="fw-bold spacer" style="margin-left: 5%">Days for Evaluation:</p>-->
+                      <small align="left" class="fw-bold spacer" style="margin-left: 5%">Days for Upfront:</small>
+                      <hr class="rounded" style="width: 95%">
+                      <small align="left" class="fw-bold spacer" style="margin-left: 5%">Days for Evaluation:</small>-->
+                      <br>
                     </div>
-                    <br>
-                    <form style='display: inline-block;' onSubmit="App.upfront(); return false;" role="form">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <button type="submit" class="btn btn-outline-success btn-lg border-4 fw-bold" style="border-radius: 5px;">Accept</button>
-                            </div>
-                        </div>
-                    </form>
-                    <form style='display: inline-block;' onSubmit="App.evaluate(); return false;" role="form">
-                        <div class="form-group col-lg-25" >
-                            <div class="input-group">
-                                
-                                <input id="evaluation" type="number" class="form-control border-3" placeholder="Proposed ETH Value" min="0"></input>
-                                <!--<div class="form-check" style="padding-top:0.5em; margin-left:0.5em; margin-right:1em;">
+                  <br>
+                  <form style="display: inline-block;" onSubmit="App.upfront();" role="form">
+                      <div class="form-group">
+                          <div class="input-group">
+                              <button type="submit" class="btn btn-outline-success btn-lg border-4 fw-bold" style="border-radius: 5px;">Accept</button>
+                          </div>
+                      </div>
+                  </form>
+                  <form style="display: inline-block;" onSubmit="App.evaluate();" role="form">
+                      <div class="form-group col-lg-25" >
+                          <div class="input-group">
+                              
+                              <input id="evaluation" type="number" class="form-control border-3" placeholder="Proposed ETH Value" min="0"></input>
+                              <!--<div class="form-check" style="padding-top:0.5em; margin-left:0.5em; margin-right:1em;">
                                   <input class="form-check-input eval_upfront" style="text-align: left;" name="eval_upfront" type="checkbox" id="eval_upfrontRadio">
                                   <label class="form-check-label" for="thirdPartyRadio1">Pay upfront</label>
-                                </div>-->
-                                <span class="input-group-btn">
-                                  <button type="submit" class="btn btn-outline-warning btn-lg border-4 fw-bold yellow-hover" style="border-radius: 5px;">Negotiate</button>
-                                </span>
-                            </div>
-                            
-                        </div>
-                    </form>
-                    <form style='display: inline-block;' onSubmit="App.withdraw(); return false;" role="form">
-                        <div class="form-group">
-                            <div class="input-group"> 
-                                <button type="submit" class="btn btn-outline-danger btn-lg border-4 fw-bold" style="border-radius: 5px; margin-top: 6px">Decline</button>
-                            </div>
-                        </div>
-                    </form>
-                    <br><br>
-                    <table id="mytable" class="table table-bordered w-77" style="text-align: center;"></table>
+                              </div>-->
+                              <span class="input-group-btn">
+                                  <button id="evaluation_button" type="button" class="btn btn-outline-warning btn-lg border-4 fw-bold yellow-hover" style="border-radius: 5px;">Negotiate</button>
+                              </span>
+                          </div>
+                          
+                      </div>
+                  </form>
+                  <form style="display: inline-block;" onSubmit="App.upfront();" role="form">
+                      <div class="form-group">
+                          <div class="input-group"> 
+                              <button type="submit" class="btn btn-outline-danger btn-lg border-4 fw-bold" style="border-radius: 5px; margin-top: 6px">Decline</button>
+                          </div>
+                      </div>
+                  </form>
+                  <br><br>
+                  <table id="mytable" class="table table-bordered w-77" style="text-align: center;"></table>
                   </div>
-                </div>
+              </div>
+  
+  
                 <div align="center">
                     <button class="btn btn-outline-dark btn-lg btn-block border-4 fw-bold"  style="border-radius: 5px; width: 59%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
                         New Transaction
@@ -96,7 +100,7 @@
                 </div>
                 <div class="collapse" id="collapseExample" style="border:1px">
                     <br><br>
-                    <form onSubmit="App.createContract(); return false;" id="myForm" role="form">
+                    <form onSubmit="App.createContract();" id="myForm" role="form">
       
                         <div class="row g-3 justify-content-center">
                             <div class="col-lg-7">
@@ -118,13 +122,13 @@
                           </div>-->
                         <div class="row g-3 justify-content-center">
                             <div class="col-lg-7">
-                              <input type="number" id="max_price" class="form-control border-3" placeholder="Value in ETH" min="0">
+                              <input type="number" id="max_price" class="form-control border-3" placeholder="Value in Finney" min="0">
                             </div>
                         </div>
                         <br>
                         <div class="row g-3 justify-content-center">
                           <div class="col-lg-7">
-                            <textarea class="form-control border-3" aria-label="Description" placeholder="Description"></textarea>
+                            <textarea id="description" class="form-control border-3" aria-label="Description" placeholder="Description"></textarea>
                           </div>
                         </div>
                         <br>
@@ -133,10 +137,10 @@
                             <div class="btn-group btn-group d-flex">
                           
                             <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" />
-                            <label class="btn btn-outline-dark btn-lg btn-block border-4 fw-bold" style="margin-right: 5px" for="option1">Request</label>
+                            <label class="btn btn-outline-dark btn-lg btn-block border-4 fw-bold isSeller" style="margin-right: 5px" for="option1" value="true">Request</label>
                           
                             <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
-                            <label class="btn btn-outline-dark btn-lg btn-block border-4 fw-bold" for="option2">Pay</label>
+                            <label class="btn btn-outline-dark btn-lg btn-block border-4 fw-bold isSeller" for="option2" value="false">Pay</label>
                           </div>
                           </span>
                           </div>
@@ -239,7 +243,7 @@
                                 <input class="form-check-input evaluation" type="radio" name="evaluation" id="evaluationRadio2" value="false" checked>
                                 <label class="form-check-label" for="evaluationRadio2">No</label>
                             </div>
-                            <input class='form-control evaluation w-50' name='evaluation' id='evaluation-input' type="number" value="1001"/><br>
+                            <input class='form-control evaluation w-50' name='evaluation' id='evaluation-input' type="number" value="1001"/><br><!--1001 is a default value-->
                             </span>
                           </div>
                           <div id="table-preview-div"></div>
@@ -360,6 +364,7 @@
             </div>
         </div>
         
+        
         <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -369,9 +374,9 @@
               <div class="modal-body">
                 <p >You can follow this contract using these identifiers:</p>
                 <p><b>Contract Owner:</b></p>
-                <p>0x65SNCNCD7c99FD853B69f2C00A966GFdfyfC1e313a08</p>
+                <div id="owner_address"></div>
                 <p><b>Index:</b></p>
-                <p>1</p>
+                <div id="current_id"></div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -386,6 +391,10 @@
         <script src="js/truffle-contract.js"></script>
         <script src="js/bootstrap.min.js"></script>
         -->
+        <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+       
         <script src="js/app.js"></script>
+
     </body>
 </html>
